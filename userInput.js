@@ -1,17 +1,21 @@
 import { Output } from './cvGenerator.js';
 import readline from 'readline';
 
+
 console.log("Welcome to the CV generator application!!!")
 console.log("Give us a few details about yourself then we will generator a CV for you")
 
 let name = "";
 let surname = "";
+let contactNumber = "";
+let emailAddress = "";
 
 let skills = []
 
 let Qualfications= []
 
 let WorkExperience =[]
+let professionalSummary=""
 
 const rl = readline.createInterface({
   input: process.stdin,
@@ -28,11 +32,14 @@ function askQuestion(question) {
 
 async function main() {
   name = await askQuestion('What is your name? \n');
-  surname = await askQuestion('What is your surname? ');
+  surname = await askQuestion('What is your surname? \n ');
+  emailAddress = await askQuestion('Please enter your email address \n');
+  contactNumber = await askQuestion('Please enter your contact number \n');
+  professionalSummary = await askQuestion('Can you please tell us about your professional Summary \n');
   let skillQuestion = "y"
   while(skillQuestion.toLowerCase()==="y"){
     skillQuestion = await askQuestion("Do you want to add another skill(y/n) \n")
-    if(skillQuestion!="y"){
+    if(skillQuestion.toLowerCase()!="y"){
         break
     }
     let skill = await askQuestion("Add your skill \n")
@@ -42,7 +49,7 @@ async function main() {
   let QualficationQues = 'y';
   while(QualficationQues.toLowerCase()==="y"){
     QualficationQues = await askQuestion("Want to add a qualification(y/n) \n")
-    if(QualficationQues!="y"){
+    if(QualficationQues.toLowerCase()!="y"){
         break
     }
     let education = {}
@@ -69,7 +76,7 @@ async function main() {
     
     WorkExperience.push(myExperience)
   }
-  Output(name, surname, skills, WorkExperience,Qualfications)
+  Output(name, surname, professionalSummary,skills, WorkExperience,Qualfications, contactNumber,emailAddress)
   rl.close();
 }
 

@@ -1,22 +1,72 @@
 import fs from "fs";
-import {exec} from "child_process";
+import { exec } from "child_process";
 
 export const Output = (
   name,
   surname,
+  professionalSummary,
   skills,
   WorkExperience,
-  Qualfications
+  Qualfications,
+  emailAddress,
+  contactNumber
 ) => {
   const htmlContent = `
     <!DOCTYPE html>
     <html>
     <head>
-        <title>My Website</title>
+        <title>CV</title>
+        <link rel="stylesheet" href="styles/style.css">
     </head>
     <body>
-        <h1>${(name, surname)} </h1>
-        <p>This is a paragraph of text.</p>
+        <header>
+            <h1>${name + " " + surname}</h1>
+            <span>${emailAddress}</span>
+            <span>${contactNumber}</span>
+        </header>
+
+        <section class="summary-section">
+           <h2>Summary</h2>
+           <div class="summary">
+           <p>${professionalSummary}</p>
+           </div>
+           
+        </section>
+
+        <section class="skills">
+            <h2>Skills</h2>
+            <ul class="list-of-skills">
+               ${skills.map((skill) => {
+                 return `<li> ${skill} </li>`
+               }).join('')}
+            </ul>
+        </section>
+
+        <section class='WorkExperience'>
+          <h2>Work Experience</h2>
+          <ul class="list-of-work-experience">
+             ${WorkExperience.map((exp)=>{
+                return  `<li class="workExperience"> 
+                    <h3>${exp.company}</h3>
+                    <p>${exp.myRole}</p>
+                    <p>Period: ${exp.start + " - " +exp.end}</p>
+                  </li>`
+             }).join('')}
+          </ul>
+        </section>
+
+        <section class='education'>
+        <h2>Qualification</h2>
+        <ul class="list-of-qualification">
+           ${Qualfications.map((education)=>{
+              return  `<li class="quali"> 
+                  <h3>${education.institution}</h3>
+                  <p>${education.nameQualification}</p>
+                  <p>Period: ${education.startQualification + " - " +education.endQualification}</p>
+                </li>`
+           }).join('')}
+        </ul>
+      </section>
     </body>
     </html>
     `;

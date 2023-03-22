@@ -1,0 +1,23 @@
+header {
+  text-align: center;
+}
+
+.summary {
+  width: 70%;
+  margin: auto;
+}
+
+.summary-section {
+  margin-top: 1.5rem;
+}
+
+.list-of-skills {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 1.5rem;
+}
+
+.list-of-work-experience .list-of-qualification{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
