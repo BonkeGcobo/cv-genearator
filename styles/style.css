@@ -17,7 +17,12 @@ header {
   grid-gap: 1.5rem;
 }
 
-.list-of-work-experience .list-of-qualification{
+.list-of-work-experience{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.list-of-qualification {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
 }
