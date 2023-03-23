@@ -47,7 +47,7 @@ export const Output = (
           <ul class="list-of-work-experience">
              ${WorkExperience.map((exp)=>{
                 return  `<li class="workExperience"> 
-                    <h3>${exp.company}</h3>
+                    <h4>${exp.company}</h4>
                     <p>${exp.myRole}</p>
                     <p>Period: ${exp.start + " - " +exp.end}</p>
                   </li>`
@@ -60,7 +60,7 @@ export const Output = (
         <ul class="list-of-qualification">
            ${Qualfications.map((education)=>{
               return  `<li class="quali"> 
-                  <h3>${education.institution}</h3>
+                  <h4>${education.institution}</h4>
                   <p>${education.nameQualification}</p>
                   <p>Period: ${education.startQualification + " - " +education.endQualification}</p>
                 </li>`

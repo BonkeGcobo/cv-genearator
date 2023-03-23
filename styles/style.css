@@ -80,14 +80,15 @@ header span {
 }
 
 .list-of-work-experience {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap:4rem;
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
 .list-of-work-experience li {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
   margin-bottom: 20px;
 }
 
@@ -113,6 +114,7 @@ header span {
 
 .list-of-qualification {
   display: grid;
+  grid-gap:4rem;
   grid-template-columns: repeat(2, 1fr);
   list-style: none;
   padding: 0;
