@@ -1,5 +1,7 @@
 import { Output } from './cvGenerator.js';
 import readline from 'readline';
+import Open from './openCV.js';
+
 
 
 console.log("Welcome to the CV generator application!!!")
@@ -77,6 +79,7 @@ async function main() {
     WorkExperience.push(myExperience)
   }
   Output(name, surname, professionalSummary,skills, WorkExperience,Qualfications, contactNumber,emailAddress)
+  Open()
   rl.close();
 }
 
