@@ -65,7 +65,7 @@ async function main() {
   let workExpQuest = 'y';
   while(workExpQuest.toLowerCase()==="y"){
     workExpQuest = await askQuestion("Want to add a work experience(y/n) \n")
-    if(workExpQuest!="y"){
+    if(workExpQuest.toLowerCase()!="y"){
         break
     }
     let myExperience = {}
